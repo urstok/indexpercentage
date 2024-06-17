@@ -1,6 +1,8 @@
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
+from plotly.offline import plot
+from IPython.display import HTML
 
 # Define the ticker symbols for the indices
 tickers = ["^NSEI", "^NSEBANK", "NIFTY_FIN_SERVICE.NS", "^CNXENERGY","^NSMIDCP","^NSEMDCP50"]
@@ -40,4 +42,5 @@ fig.update_layout(
 )
 
 # Show the interactive plot
-fig.show()
+plot_div = plot(fig, output_type='div', include_plotlyjs='cdn')
+HTML(plot_div)
